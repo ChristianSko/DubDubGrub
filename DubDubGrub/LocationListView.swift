@@ -9,8 +9,13 @@ import SwiftUI
 
 struct LocationListView: View {
     var body: some View {
-        List {
-            CellView()
+        NavigationView{
+            List {
+                ForEach(0..<10) { cell in
+                    CellView()
+                }
+            }
+            .navigationTitle("Grub Spots")
         }
     }
 }
