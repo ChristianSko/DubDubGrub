@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct LocationDetailView: View {
+    
+    let columns = [GridItem(.flexible()),
+                   GridItem(.flexible()),
+                   GridItem(.flexible())]
+    
     var body: some View {
         NavigationView{
             VStack(spacing: 16){
@@ -15,7 +20,7 @@ struct LocationDetailView: View {
                     .resizable()
                     .scaledToFill()
                     .frame(height: 120)
-                 
+                
                 HStack{
                     Label("123 Main Street", systemImage: "mappin.and.ellipse")
                         .font(.caption)
@@ -36,12 +41,47 @@ struct LocationDetailView: View {
                         .frame(height: 80)
                         .foregroundColor(Color(.secondarySystemBackground))
                     
-                    HStack{
-                        LocationActionButton(color: .brandPrimary, imageName: "location.fill")
+                    HStack(spacing: 20){
+                        Button {
+                            
+                        } label: {
+                            LocationActionButton(color: .brandPrimary, imageName: "location.fill")
+                        }
+                        
+                        Link(destination: URL(string: "https://www.apple.com")!, label: {
+                            LocationActionButton(color: .brandPrimary, imageName: "network")
+                        })
+                        
+                        Button {
+                            
+                        } label: {
+                            LocationActionButton(color: .brandPrimary, imageName: "phone.fill")
+                        }
+                        Button {
+                            
+                        } label: {
+                            LocationActionButton(color: .brandPrimary, imageName: "person.fill.checkmark")
+                        }
+                        
                     }
                     
                 }
                 .padding(.horizontal)
+                
+                Text("Who is here?")
+                    .bold()
+                    .font(.title2)
+                
+                LazyVGrid(columns: columns, content: {
+                    firstNameAvatarView(firstName: "Chris")
+                    firstNameAvatarView(firstName: "Chris")
+                    firstNameAvatarView(firstName: "Chris")
+                    firstNameAvatarView(firstName: "Chris")
+                    firstNameAvatarView(firstName: "Chris")
+                    firstNameAvatarView(firstName: "Chris")
+        
+                    
+                })
                 
                 Spacer()
                 
@@ -71,8 +111,25 @@ struct LocationActionButton: View {
             
             Image(systemName: imageName)
                 .resizable()
+                .scaledToFit()
                 .foregroundColor(.white)
                 .frame(width: 22, height: 22)
+        }
+    }
+}
+
+struct firstNameAvatarView: View {
+    
+    var firstName: String
+    
+    var body: some View {
+        VStack{
+            AvatarView(size: 64)
+            
+            Text(firstName)
+                .bold()
+                .lineLimit(1)
+                .minimumScaleFactor(0.75)
         }
     }
 }
