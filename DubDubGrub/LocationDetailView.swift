@@ -14,7 +14,6 @@ struct LocationDetailView: View {
                    GridItem(.flexible())]
     
     var body: some View {
-        NavigationView{
             VStack(spacing: 16){
                 Image("default-banner-asset")
                     .resizable()
@@ -88,7 +87,7 @@ struct LocationDetailView: View {
             }
             .navigationTitle("Location Name")
             .navigationBarTitleDisplayMode(.inline)
-        }
+        
     }
 }
 
