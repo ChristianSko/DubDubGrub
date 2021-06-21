@@ -12,7 +12,7 @@ struct LocationListView: View {
         NavigationView{
             List {
                 ForEach(0..<10) { cell in
-                    CellView()
+                    LocationCellView()
                 }
             }
             .navigationTitle("Grub Spots")
@@ -26,7 +26,7 @@ struct LocationListView_Previews: PreviewProvider {
     }
 }
 
-struct CellView: View {
+struct LocationCellView: View {
     var body: some View {
         HStack{
             Image("default-square-asset")
