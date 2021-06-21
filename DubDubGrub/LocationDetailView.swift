@@ -31,6 +31,7 @@ struct LocationDetailView: View {
                 
                 Text("This is a test description. This is a test description. This is a test description. This is a test description. This is a test description. This is a test description. ")
                     .lineLimit(3)
+                    .frame(height: 70)
                     .minimumScaleFactor(0.75)
                     .padding(.horizontal)
                 
@@ -71,18 +72,20 @@ struct LocationDetailView: View {
                     .bold()
                     .font(.title2)
                 
-                LazyVGrid(columns: columns, content: {
-                    firstNameAvatarView(firstName: "Chris")
-                    firstNameAvatarView(firstName: "Chris")
-                    firstNameAvatarView(firstName: "Chris")
-                    firstNameAvatarView(firstName: "Chris")
-                    firstNameAvatarView(firstName: "Chris")
-                    firstNameAvatarView(firstName: "Chris")
-        
-                    
-                })
+                ScrollView {
+                    LazyVGrid(columns: columns, content: {
+                        firstNameAvatarView(firstName: "Chris")
+                        firstNameAvatarView(firstName: "Chris")
+                        firstNameAvatarView(firstName: "Chris")
+                        firstNameAvatarView(firstName: "Chris")
+                        firstNameAvatarView(firstName: "Chris")
+                        firstNameAvatarView(firstName: "Chris")
+            
+                        
+                    })
+                }
                 
-                Spacer()
+    
                 
             }
             .navigationTitle("Location Name")
